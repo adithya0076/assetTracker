@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="vstyle.css">
+    <script>
+        function displayContent(event, contentNameID) {
+
+            let content =
+                document.getElementsByClassName("contentClass");
+            let totalCount = content.length;
+
+            // Loop through the content class
+            // and hide the tabs first
+            for (let count = 0;
+                count < totalCount; count++) {
+                content[count].style.display = "none";
+            }
+
+            let links =
+                document.getElementsByClassName("linkClass");
+            totalLinks = links.length;
+
+            // Loop through the links and
+            // remove the active class
+            for (let count = 0;
+                count < totalLinks; count++) {
+                links[count].classList.remove("active");
+            }
+
+            // Display the current tab
+            document.getElementById(contentNameID)
+                .style.display = "block";
+
+            // Add the active class to the current tab
+            event.currentTarget.classList.add("active");
+        }
+
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #tabsDiv {
+            height: 300px;
+            border: 2px solid #c0c0c0;
+        }
+
+        #tabsDiv ul {
+            height: 300px;
+            padding: 0px 5px;
+        }
+
+        #tabsDiv li {
+            width: 15%;
+            height: 60px;
+        }
+
+        #tabsDiv button {
+            float: left;
+            border: 1px solid #c0c0c0;
+            background-color: #f1f0f4;
+        }
+
+        /* Button to open the content */
+        #tabsDiv button {
+            display: block;
+            background-color: inherit;
+            color: black;
+            padding: 25px 15px;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        /* Button styling on mouse hover */
+        #tabsDiv button:hover {
+            background-color: #d1d1d1;
+            color: lime;
+        }
+
+        #tabsDiv button.active {
+            background-color: #c0c0c0;
+        }
+
+        /* Content for tabs*/
+        .contentClass {
+            display: none;
+            position: absolute;
+            left: 18%;
+            padding: 0px 15px;
+            width: 70%;
+            border-style: none;
+            height: 300px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2 style="color:green">
+        GeeksforGeeks Vertical tabs
+    </h2>
+
+    <div id="tabsDiv">
+        <div id="interview" class="contentClass">
+            <h3>Interview</h3>
+
+            <p>
+                Also, in Asymptotic analysis,
+                we always talk about input sizes larger
+                than a constant value. It might
+                be possible that those large inputs
+                are never given to your software and
+                an algorithm which is asymptotically
+                slower, always performs better for
+                your particular situation. So, you
+                may end up choosing an algorithm that
+                is Asymptotically slower but faster
+                for your software.
+            </p>
+        </div>
+
+        <div id="practice" class="contentClass">
+            <h3>Practice</h3>
+
+            <p>
+                Asymptotic Analysis is the big idea
+                that handles above issues in analyzing
+                algorithms. In Asymptotic Analysis, we
+                evaluate the performance of an algorithm
+                in terms of input size (we don’t measure
+                the actual running time). We calculate,
+                how does the time (or space) taken by
+                an algorithm increases with
+                the input size.
+            </p>
+        </div>
+
+        <div id="python" class="contentClass">
+            <h3>Python</h3>
+
+            <p>
+                Python is a high-level, general-purpose
+                and a very popular programming language.
+                Python programming language (latest Python 3)
+                is being used in web development, Machine
+                Learning applications, along with all
+                cutting edge technology in Software Industry.
+                Python Programming Language is very
+                well suited for Beginners, also for
+                experienced programmers with other
+                programming languages like C++ and Java.
+            </p>
+        </div>
+
+        <div id="algorithms" class="contentClass">
+            <h3>Greedy Algorithms</h3>
+
+            <p>
+                Greedy is an algorithmic paradigm
+                that builds up a solution piece by
+                piece,always choosing the next piece
+                that offers the most obvious and
+                immediate benefit. So the problems
+                where choosing locally optimal also
+                leads to global solution are best
+                fit for Greedy.
+            </p>
+        </div>
+
+        <ul class="ulClass" style="height:300px">
+            <li style="list-style-type:none;">
+                <button class="linkClass" onclick="displayContent(event, 'interview')">
+                    Interview
+                </button>
+            </li>
+
+            <li style="list-style-type:none;">
+                <button class="linkClass" onclick="displayContent(event, 'practice')">
+                    Practice
+                </button>
+            </li>
+
+            <li style="list-style-type:none;">
+                <button class="linkClass" onclick="displayContent(event, 'python')">
+                    Python
+                </button>
+            </li>
+
+            <li style="list-style-type:none;">
+                <button class="linkClass" onclick="displayContent(event, 'algorithms')">
+                    Algorithms
+                </button>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
